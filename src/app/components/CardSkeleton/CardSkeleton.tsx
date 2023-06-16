@@ -7,7 +7,6 @@ const CardSkeleton = () => {
       <div className={styles.details}>
         <div className={styles.skeleton}></div>
         <div className={styles.skeleton}></div>
-        <div className={styles.skeleton}></div>
       </div>
     </div>
   );

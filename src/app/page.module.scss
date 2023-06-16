@@ -22,7 +22,7 @@
 .CardContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-
+  justify-items: center;
   width: 100%;
   max-width: 1440px;
   gap: 3rem;

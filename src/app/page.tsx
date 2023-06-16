@@ -98,11 +98,8 @@ export default function Home() {
           characters.map((character: any) => (
             <Card key={character.id} info={character} />
           ))}
+        {!isFinished && <InfiniteScroll fetchData={fetchData} />}
       </section>
-
-      {!isFinished && (
-        <button onClick={fetchData}>{loading ? "loading" : "fetch"}</button>
-      )}
     </main>
   );
 }
