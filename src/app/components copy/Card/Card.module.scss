@@ -1,0 +1,258 @@
+.Vendors {
+  padding: 10px;
+  min-height: 100vh;
+  > a {
+    border-radius: 6px;
+    padding: 5px 10px;
+    border: 1px solid black;
+  }
+}
+.card {
+  color: black;
+  position: relative;
+  background: white;
+  width: 567px;
+  height: 248px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
+
+  cursor: pointer;
+  > * {
+    flex: 1 50%;
+  }
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  text-shadow: none !important;
+  line-height: 1.15;
+  font-size: var(--text-small);
+  color: inherit;
+  -webkit-box-direction: normal;
+  box-sizing: inherit;
+  user-select: none;
+  background-color: white;
+  direction: rtl;
+  border-radius: 6px;
+  border: solid 0.5px var(--seperator-color);
+  -webkit-box-shadow: var(--card-shadow-2);
+  box-shadow: var(--card-shadow-2);
+
+  width: 100%;
+  height: 248px;
+  max-width: 567px;
+}
+
+.CardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 100%;
+  align-items: center;
+}
+.banner {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.logo {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1);
+
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  text-shadow: none !important;
+  line-height: 1.15;
+  font-size: var(--text-small);
+  direction: rtl;
+  box-sizing: inherit;
+  user-select: none;
+  position: absolute;
+  bottom: -16px;
+  right: 8px;
+  width: 64px;
+  height: 64px;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: var(--card-shadow-3);
+}
+
+.details {
+  padding: 40px 16px 8px 16px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  overflow: unset;
+}
+
+.header {
+  overflow: hidden;
+  height: 50%;
+}
+
+.restaurantInfo,
+.restaurantName,
+.description,
+.restaurantScore,
+.restaurantScore > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurantName {
+  h3 {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-shadow: none !important;
+    direction: rtl;
+    -webkit-box-direction: normal;
+    box-sizing: inherit;
+    user-select: none;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+    position: relative;
+    width: unset;
+    max-width: 100%;
+    margin-left: 4px;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    font-size: var(--text-medium);
+    font-weight: var(--font-medium);
+    color: var(--text-color);
+  }
+
+  align-items: center;
+}
+
+.discountBadge {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-shadow: none !important;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  direction: rtl;
+  -webkit-box-direction: normal;
+  box-sizing: inherit;
+  user-select: none;
+  font-size: var(--text-small);
+  font-weight: var(--font-medium);
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+
+  border-radius: 4px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 4px;
+  padding-bottom: 3px;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.countReview {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-shadow: none !important;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  direction: rtl;
+  -webkit-box-direction: normal;
+  box-sizing: inherit;
+  user-select: none;
+  font-size: var(--text-small);
+  font-weight: var(--font-regular);
+  color: var(--text-color-light);
+  display: flex;
+  align-items: center;
+}
+
+.rate {
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  text-shadow: none !important;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+
+  font-size: var(--text-small);
+
+  direction: rtl;
+  box-sizing: inherit;
+  user-select: none;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  padding: 2px 4px 2px 2px;
+  border-radius: 4px;
+  background-color: var(--dark-bilbao-color);
+  color: var(--starcolor-default);
+}
+
+.description {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-shadow: none !important;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-box-direction: normal;
+  direction: rtl;
+  box-sizing: inherit;
+  user-select: none;
+  font-size: var(--text-small);
+  font-weight: var(--font-regular);
+  color: var(--text-color);
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.delivery {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deliveryType {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-shadow: none !important;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+
+  direction: rtl;
+  white-space: nowrap;
+  -webkit-box-direction: normal;
+  box-sizing: inherit;
+  user-select: none;
+  margin-left: 4px;
+  font-size: var(--text-small);
+  font-weight: var(--font-regular);
+  color: var(--text-color-light);
+}
+
+.deliveryFee {
+  font-size: 12px;
+  margin-left: 3px;
+}

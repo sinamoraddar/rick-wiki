@@ -3,9 +3,11 @@ import React from "react";
 const Card = ({ info }: { info: any }) => {
   return (
     <div>
-      <p>Image</p>
+      {info.image !== "" && <img src={info.image} alt={info.name} />}
       <p>{info.name}</p>
-      <p>Survival status</p>
+      <p>{info.status}</p>
+      <p>{info.gender}</p>
+      <p>{info.species}</p>
     </div>
   );
 };

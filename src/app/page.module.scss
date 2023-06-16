@@ -1,0 +1,20 @@
+.Main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  > section,
+  header {
+    padding: 2rem 3rem;
+  }
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CardContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 3rem;
+}
