@@ -1,0 +1,46 @@
+.Card {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  background-color: white;
+
+  img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.Status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: black;
+}
+
+.Info {
+  padding: 1rem;
+  h3 {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.235);
+  }
+}
+
+.Tags {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+
+  span {
+    background-color: rgb(84, 84, 203);
+  }
+}
+
+.Tag {
+  color: white;
+  padding: 0.3rem 0.75rem;
+  text-transform: capitalize;
+
+  border-radius: 0.25rem;
+}

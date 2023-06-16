@@ -43,8 +43,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
   const fetchData = useCallback(async () => {
-    console.log(loading);
-
     if (loading || isFinished) {
       return;
     }
@@ -67,11 +65,11 @@ export default function Home() {
     <main className={styles.Main}>
       <header className={styles.Header}>
         <div>
-          Ricki morty wiki
+          <h1>Ricki morty wiki</h1>
           <p>List of characters</p>
         </div>
 
-        <div>
+        <div className={styles.Statistics}>
           <span>
             Alive:{" "}
             {
