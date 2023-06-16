@@ -1,95 +1,77 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+
+import Image from "next/image";
+import styles from "./page.module.css";
+import { use, useEffect, useState } from "react";
+import Card from "./components/Card/Card";
+
+const fetchCharacters = async () => {
+  try {
+    const result = await fetch("https://rickandmortyapi.com/api/character");
+
+    return result.json();
+  } catch (e) {}
+};
 
 export default function Home() {
+  const [characters, setCharacters] = useState([]);
+
+  const fetchData = async () => {
+    const { results } = await fetchCharacters();
+
+    console.log(results);
+    setCharacters(results);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
+      <header>
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          Ricki morty wiki
+          <p>List of characters</p>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <div>
+          <span>
+            Alive:{" "}
+            {
+              characters.filter((character) => character.status === "Alive")
+                .length
+            }
+          </span>{" "}
+          <span>
+            Dead:{" "}
+            {
+              characters.filter((character) => character.status === "Dead")
+                .length
+            }
+          </span>{" "}
+          <span>
+            Unknown:{" "}
+            {
+              characters.filter((character) => character.status === "unknown")
+                .length
+            }
+          </span>
+        </div>
+      </header>
+      {characters.length > 0 &&
+        characters.map((character: any) => (
+          <div key={character.id}>
+            {character.image !== "" && (
+              <img src={character.image} alt={character.name} />
+            )}
+            <p>{character.name}</p>
+            <p>{character.status}</p>
+            <p>{character.gender}</p>
+            <p>{character.species}</p>
+          </div>
+        ))}
+      asds
     </main>
-  )
+  );
 }
