@@ -9,7 +9,7 @@ import InfiniteScroll from "./components/InfiniteScroll/InfiniteScroll";
 interface CharacterShape {
   id: 581;
   name: "Anchosnake";
-  status: "Alive";
+  status: "Alive" | "Dead" | "unknown";
   species: "Animal";
   type: "Snake";
   gender: "Male";
