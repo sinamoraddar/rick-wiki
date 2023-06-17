@@ -8,7 +8,7 @@ type Props = {
 const InfiniteScroll = ({ fetchData }: Props) => {
   const handleScroll = useCallback(() => {
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
+      Math.round(window.innerHeight + document.documentElement.scrollTop) ===
       document.documentElement.offsetHeight
     ) {
       fetchData?.();
