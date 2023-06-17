@@ -13,6 +13,7 @@ const Card = ({ info }: { info: CharacterShape }) => {
           alt={info.name}
           width={300}
           height={300}
+          priority
         />
       )}
       <div className={styles.Info}>

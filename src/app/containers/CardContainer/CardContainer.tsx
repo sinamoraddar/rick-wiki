@@ -1,3 +1,5 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import CardSkeleton from "../../components/CardSkeleton/CardSkeleton";
 import styles from "./CardContainer.module.scss";

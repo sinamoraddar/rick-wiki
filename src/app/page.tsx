@@ -1,7 +1,4 @@
-"use client";
-
 import styles from "./page.module.scss";
-import { use, useCallback, useEffect, useRef, useState } from "react";
 import CardContainer from "./containers/CardContainer/CardContainer";
 
 export default function Home() {
