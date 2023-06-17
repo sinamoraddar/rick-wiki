@@ -9,16 +9,6 @@
   }
 }
 
-.Header {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
-  background-color: white;
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
 .CardContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, auto));
@@ -29,17 +19,6 @@
   > div {
     max-width: 300px;
   }
-}
-
-.Statistics {
-  display: flex;
-  align-items: center;
-  padding: 1rem 2rem;
-  border-radius: 0.25rem;
-  gap: 1rem;
-  text-transform: uppercase;
-
-  background: var(--gray);
 }
 
 .FinishedText {

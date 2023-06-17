@@ -1,12 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./page.module.scss";
 import { use, useCallback, useEffect, useRef, useState } from "react";
 import Card from "./components/Card/Card";
 import InfiniteScroll from "./components/InfiniteScroll/InfiniteScroll";
+import dynamic from "next/dynamic";
+import Header from "./components/Header/Header";
+import CardSkeleton from "./components/CardSkeleton/CardSkeleton";
+import HeaderSkeleton from "./components/HeaderSkeleton/HeaderSkeleton";
 
-interface CharacterShape {
+export interface CharacterShape {
   id: 581;
   name: "Anchosnake";
   status: "Alive" | "Dead" | "unknown";
@@ -37,6 +40,20 @@ const fetchCharacters = async (page: number) => {
   } catch (e) {}
 };
 
+// lazy loading
+const LazyCard = dynamic(() => import("./components/Card/Card"), {
+  loading: () => <CardSkeleton />,
+});
+const LazySkeleton = dynamic(
+  () => import("./components/InfiniteScroll/InfiniteScroll"),
+  {
+    loading: () => <CardSkeleton />,
+  }
+);
+const LazyHeader = dynamic(() => import("./components/Header/Header"), {
+  loading: () => <HeaderSkeleton />,
+});
+
 export default function Home() {
   const [characters, setCharacters] = useState<CharacterShape[]>([]);
   const currentPage = useRef(1);
@@ -63,43 +80,23 @@ export default function Home() {
 
   return (
     <main className={styles.Main}>
-      <header className={styles.Header}>
-        <div>
-          <h1>Ricki morty wiki</h1>
-          <p>List of characters</p>
-        </div>
-
-        <div className={styles.Statistics}>
-          <span>
-            Alive:{" "}
-            {
-              characters.filter((character) => character.status === "Alive")
-                .length
-            }
-          </span>{" "}
-          <span>
-            Dead:{" "}
-            {
-              characters.filter((character) => character.status === "Dead")
-                .length
-            }
-          </span>{" "}
-          <span>
-            Unknown:{" "}
-            {
-              characters.filter((character) => character.status === "unknown")
-                .length
-            }
-          </span>
-        </div>
-      </header>
-      <section className={styles.CardContainer}>
-        {characters.length > 0 &&
-          characters.map((character: any) => (
-            <Card key={character.id} info={character} />
-          ))}
-        {!isFinished && <InfiniteScroll fetchData={fetchData} />}
-      </section>
+      <LazyHeader characters={characters} />
+      {newFunction(characters, isFinished, fetchData)}
     </main>
+  );
+}
+function newFunction(
+  characters: CharacterShape[],
+  isFinished: boolean,
+  fetchData: () => Promise<void>
+) {
+  return (
+    <section className={styles.CardContainer}>
+      {characters.length > 0 &&
+        characters.map((character: any) => (
+          <LazyCard key={character.id} info={character} />
+        ))}
+      {!isFinished && <LazySkeleton fetchData={fetchData} />}
+    </section>
   );
 }
