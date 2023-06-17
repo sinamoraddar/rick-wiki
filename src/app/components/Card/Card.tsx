@@ -1,12 +1,19 @@
 import React from "react";
 import styles from "./Card.module.scss";
 import Image from "next/image";
+import { CharacterShape } from "@/app/utils";
 
-const Card = ({ info }: { info: any }) => {
+const Card = ({ info }: { info: CharacterShape }) => {
   return (
     <div className={styles.Card}>
       {info.image !== "" && (
-        <Image src={info.image} alt={info.name} width={300} height={300} />
+        <Image
+          className={styles.Image}
+          src={info.image}
+          alt={info.name}
+          width={300}
+          height={300}
+        />
       )}
       <div className={styles.Info}>
         <h3 className={styles.Name}>{info.name}</h3>

@@ -1,20 +1,11 @@
 .Card {
   background: white;
-  font-size: var(--text-small);
-  color: inherit;
-  -webkit-box-direction: normal;
   box-sizing: inherit;
   user-select: none;
   display: block;
-
-  min-width: min(calc(100% - 4px), 260px);
-  background-color: white;
   direction: rtl;
   border-radius: 6px;
-  border: solid 0.5px var(--seperator-color);
-  -webkit-box-shadow: var(--card-shadow-2);
-  box-shadow: var(--card-shadow-2);
-  width: calc(100% - 32px);
+  border: solid 0.5px black;
   width: 100%;
   height: 300px;
   display: flex;
@@ -22,12 +13,6 @@
   > * {
     flex: 1 50%;
   }
-}
-
-.skeleton {
-  border-radius: 6px;
-  background-color: #f5f5f5;
-  animation: skeleton-loading 1s infinite ease-in-out;
 }
 
 @keyframes skeleton-loading {
@@ -45,19 +30,30 @@
 .skeleton {
   width: 100%;
   height: 20px;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  animation: skeleton-loading 1s infinite ease-in-out;
 }
 
 .header {
   border-radius: 0;
 }
 .details {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-
+  &,
+  > div {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  flex-direction: column;
   padding: 20px 16px 8px 16px;
-  justify-content: flex-end;
+  justify-content: center;
   .skeleton {
     width: 25%;
+  }
+
+  > div {
+    width: 100%;
+    justify-content: flex-end;
   }
 }

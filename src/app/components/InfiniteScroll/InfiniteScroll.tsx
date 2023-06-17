@@ -3,7 +3,7 @@ import React, { useCallback, useEffect } from "react";
 import CardSkeleton from "../CardSkeleton/CardSkeleton";
 
 type Props = {
-  fetchData: any;
+  fetchData: () => void;
 };
 const InfiniteScroll = ({ fetchData }: Props) => {
   const handleScroll = useCallback(() => {
@@ -22,9 +22,6 @@ const InfiniteScroll = ({ fetchData }: Props) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
-  useEffect(() => {
-    fetchData?.();
-  }, []);
 
   return (
     <>

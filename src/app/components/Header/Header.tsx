@@ -1,9 +1,13 @@
-"use client";
-import { CharacterShape } from "@/app/page";
+import { useMemo } from "react";
+import { CharacterShape, categorizeByStatus } from "@/app/utils";
 import styles from "./Header.module.scss";
-import HeaderSkeleton from "../HeaderSkeleton/HeaderSkeleton";
 
 const Header = ({ characters }: { characters: CharacterShape[] }) => {
+  const categorizedCharacters = useMemo(
+    () => categorizeByStatus(characters),
+    [characters]
+  );
+
   return (
     <header className={styles.Header}>
       <div>
@@ -12,24 +16,9 @@ const Header = ({ characters }: { characters: CharacterShape[] }) => {
       </div>
 
       <div className={styles.Statistics}>
-        <span>
-          Alive:{" "}
-          {
-            characters.filter((character) => character.status === "Alive")
-              .length
-          }
-        </span>{" "}
-        <span>
-          Dead:{" "}
-          {characters.filter((character) => character.status === "Dead").length}
-        </span>{" "}
-        <span>
-          Unknown:{" "}
-          {
-            characters.filter((character) => character.status === "unknown")
-              .length
-          }
-        </span>
+        <span>Alive: {categorizedCharacters.alive}</span>{" "}
+        <span>Dead: {categorizedCharacters.dead} </span>{" "}
+        <span>Unknown: {categorizedCharacters.unknown}</span>
       </div>
     </header>
   );
