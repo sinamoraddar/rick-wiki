@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import CardSkeleton from "../../components/CardSkeleton/CardSkeleton";
 import styles from "./CardContainer.module.scss";
-import { use, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import { CharacterShape } from "@/app/utils";
 import { fetchCharacters } from "@/app/api";
