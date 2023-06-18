@@ -5,6 +5,7 @@ import CardSkeleton from "../CardSkeleton/CardSkeleton";
 type Props = {
   fetchData: () => void;
 };
+
 const InfiniteScroll = ({ fetchData }: Props) => {
   const handleScroll = useCallback(() => {
     if (

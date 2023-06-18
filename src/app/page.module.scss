@@ -8,21 +8,3 @@
     padding: 2rem 3rem;
   }
 }
-
-.CardContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-  justify-items: center;
-  width: 100%;
-  max-width: 1440px;
-  gap: 3rem;
-  > div {
-    max-width: 300px;
-  }
-}
-
-.FinishedText {
-  text-transform: capitalize;
-  text-align: center;
-  padding: 3rem 0;
-}

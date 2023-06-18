@@ -1,14 +1,3 @@
-.Main {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  > section,
-  header {
-    padding: 2rem 3rem;
-  }
-}
-
 .CardContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, auto));
@@ -19,10 +8,4 @@
   > div {
     max-width: 300px;
   }
-}
-
-.FinishedText {
-  text-transform: capitalize;
-  text-align: center;
-  padding: 3rem 0;
 }
